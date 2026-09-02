@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#241710" />
+    <title>Utkarsh & Kanika — A Celebration of Love</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="event-art.css" />
+    <link rel="stylesheet" href="rsvp-checkboxes.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="nav">
+      <a href="#home" class="monogram" aria-label="Home">U <span>&</span> K</a>
+      <button class="menu-button" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+      <nav><a href="#story">Our story</a><a href="#celebrations">Celebrations</a><a href="#gallery">Moments</a><a href="#rsvp">RSVP</a></nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-image"></div><div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Together with their families</p>
+          <h1>Utkarsh <em>&</em> Kanika</h1>
+          <p class="date">October 17 — 24, 2026</p>
+          <a class="scroll-cue" href="#story"><span></span>Discover our celebration</a>
+        </div>
+        <div class="hero-note">A new chapter<br />begins</div>
+      </section>
+
+      <section class="intro" id="story">
+        <p class="eyebrow">A celebration in four acts</p>
+        <h2>Come celebrate<br /><em>our forever.</em></h2>
+        <p class="intro-copy">We would be honoured to have you by our side as music, colour, laughter, and love carry us into our next beautiful chapter.</p>
+        <div class="countdown-wrap">
+          <p>Counting down to the wedding</p>
+          <div class="countdown" aria-label="Countdown to wedding day">
+            <div><strong id="days">00</strong><span>Days</span></div><b>:</b><div><strong id="hours">00</strong><span>Hours</span></div><b>:</b><div><strong id="minutes">00</strong><span>Minutes</span></div><b>:</b><div><strong id="seconds">00</strong><span>Seconds</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="events" id="celebrations">
+        <div class="section-head"><p class="eyebrow">Mark your calendar</p><h2>The <em>celebrations</em></h2></div>
+        <article class="event-card mehndi"><div class="event-visual"></div><div class="event-details"><p class="event-index">01 / FESTIVITIES</p><h3>Mehndi <em>&</em> Nutair</h3><p class="event-time">17 October · 7:00 PM</p><p class="event-place">Le Oval Hotel & Resort</p><a class="text-link" target="_blank" rel="noreferrer" href="https://share.google/GPgf3Djnunffe6RpH">View venue <span>↗</span></a></div></article>
+        <article class="event-card haldi"><div class="event-visual"></div><div class="event-details"><p class="event-index">02 / RITUALS</p><h3>Haldi</h3><p class="event-time">18 October · 10:00 AM</p><p class="event-place">Le Oval Hotel & Resort</p><a class="text-link" target="_blank" rel="noreferrer" href="https://share.google/GPgf3Djnunffe6RpH">View venue <span>↗</span></a></div></article>
+        <article class="event-card wedding"><div class="event-visual"></div><div class="event-details"><p class="event-index">03 / THE VOWS</p><h3>The Wedding</h3><p class="event-time">18 October · 7:00 PM</p><p class="event-place">Le Oval Hotel & Resort</p><a class="text-link" target="_blank" rel="noreferrer" href="https://share.google/GPgf3Djnunffe6RpH">View venue <span>↗</span></a></div></article>
+        <article class="event-card reception"><div class="event-visual"></div><div class="event-details"><p class="event-index">04 / TOASTS</p><h3>Wedding Reception</h3><p class="event-time">24 October · 7:00 PM onwards</p><p class="event-place">PowerGrid Field Hostel, Gurgaon</p><a class="text-link" target="_blank" rel="noreferrer" href="https://share.google/fVJWf1QAn9JtSOYns">View venue <span>↗</span></a></div></article>
+      </section>
+
+      <section class="gallery" id="gallery">
+        <div class="gallery-title"><p class="eyebrow">Snapshots of love</p><h2>Our <em>moments</em></h2><p>There is magic in every little glance, every shared laugh, every journey that brought us here.</p></div>
+        <div class="gallery-grid">
+          <div class="photo photo-one"><span>01</span></div><div class="photo photo-two"><span>02</span></div><div class="photo photo-three"><span>03</span></div><div class="photo photo-four"><span>04</span></div>
+        </div>
+        <p class="gallery-caption">— With love, and a little bit of stardust</p>
+      </section>
+
+      <section class="rsvp" id="rsvp">
+        <div class="rsvp-image"></div><div class="rsvp-overlay"></div>
+        <div class="rsvp-content"><p class="eyebrow">Will you join us?</p><h2>Your presence<br />is <em>the present.</em></h2><p>Please let us know which celebrations you will be part of.</p>
+          <form id="rsvpForm">
+            <div class="field-row"><label>Your name<input required name="name" placeholder="Full name" /></label><label>Guests<input name="guests" type="number" min="1" max="10" value="1" /></label></div>
+            <fieldset class="event-options"><legend>Celebrations you will attend</legend><label><input type="checkbox" name="event" value="Mehndi & Nutair — 17 Oct" /> <span>Mehndi & Nutair <small>17 Oct · 7 PM</small></span></label><label><input type="checkbox" name="event" value="Haldi — 18 Oct" /> <span>Haldi <small>18 Oct · 10 AM</small></span></label><label><input type="checkbox" name="event" value="Wedding — 18 Oct" /> <span>Wedding <small>18 Oct · 7 PM</small></span></label><label><input type="checkbox" name="event" value="Wedding Reception — 24 Oct" /> <span>Wedding Reception <small>24 Oct · 7 PM onwards</small></span></label></fieldset>
+            <label>A note for the couple <textarea name="note" placeholder="Leave a little love..." rows="2"></textarea></label>
+            <button class="rsvp-button" type="submit">Send RSVP <span>↗</span></button>
+          </form>
+          <a class="whatsapp" href="https://wa.me/918750262648?text=Hello%20Utkarsh%20%26%20Kanika%2C%20I%20have%20a%20question%20about%20the%20wedding." target="_blank" rel="noreferrer">Questions? WhatsApp us <span>↗</span></a>
+        </div>
+      </section>
+    </main>
+    <footer><div class="monogram">U <span>&</span> K</div><p>Made with love for our favourite people</p><p>October 2026</p></footer>
+    <div class="toast" role="status" aria-live="polite">Opening WhatsApp to send your RSVP…</div>
+    <script src="script.js"></script>
+  </body>
+</html>
