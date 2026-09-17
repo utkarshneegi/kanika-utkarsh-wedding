@@ -208,7 +208,7 @@
     overflow:hidden; color:#fff;
   }
   .hero-bg{
-    position:absolute; inset:0; background-size:cover; background-position:50% 38%;
+    position:absolute; inset:0; background-size:cover; background-position:50% 30%;
     transform:scale(1.08);
     animation:heroZoom 16s ease-out forwards;
   }
@@ -476,7 +476,7 @@
   <div class="wrap">
     <div class="eyebrow">Mark the date</div>
     <h2>Counting down to our wedding day</h2>
-    <div class="sub">18th October 2026 · Le Oval Hotel and Resort</div>
+    <div class="sub">18th October 2026 · Le Oval Hotel and Resort, Dehradun</div>
     <div class="countdown" id="countdown">
       <div class="cd-box"><div class="cd-num" id="cd-days">00</div><div class="cd-label">Days</div></div>
       <div class="cd-box"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Hours</div></div>
@@ -511,7 +511,7 @@
           </div>
           <div class="tl-venue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-            Vishal Wedding Point
+            Vishal Wedding Point, Chauras
           </div>
           <div class="tl-actions">
             <a class="btn" href="https://share.google/sWu1qXYepJC1H242X" target="_blank" rel="noopener">View location</a>
@@ -532,7 +532,7 @@
           </div>
           <div class="tl-venue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-            Le Oval Hotel and Resort
+            Le Oval Hotel and Resort, Dehradun
           </div>
           <div class="tl-actions">
             <a class="btn" href="https://share.google/GPgf3Djnunffe6RpH" target="_blank" rel="noopener">View location</a>
@@ -553,7 +553,7 @@
           </div>
           <div class="tl-venue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-            Le Oval Hotel and Resort
+            Le Oval Hotel and Resort, Dehradun
           </div>
           <div class="tl-actions">
             <a class="btn" href="https://share.google/GPgf3Djnunffe6RpH" target="_blank" rel="noopener">View location</a>
@@ -574,7 +574,7 @@
           </div>
           <div class="tl-venue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-            Le Oval Hotel and Resort
+            Le Oval Hotel and Resort, Dehradun
           </div>
           <div class="tl-actions">
             <a class="btn" href="https://share.google/GPgf3Djnunffe6RpH" target="_blank" rel="noopener">View location</a>
@@ -633,14 +633,6 @@
           <input type="text" id="rname" name="rname" placeholder="Full name" required>
         </div>
         <div class="field">
-          <label for="rphone">Phone number</label>
-          <input type="tel" id="rphone" name="rphone" placeholder="e.g. 98765 43210" required>
-        </div>
-        <div class="field">
-          <label for="rguests">Number of guests (including you)</label>
-          <input type="number" id="rguests" name="rguests" min="1" value="1" required>
-        </div>
-        <div class="field">
           <label>Which functions will you attend?</label>
           <div class="check-grid">
             <label class="check-item"><input type="checkbox" name="event" value="Pre-wedding function — 12 Oct"> Pre-wedding · 12 Oct</label>
@@ -678,7 +670,7 @@
     <a href="#top">Back to top</a>
     <a href="https://wa.me/916395113503" target="_blank" rel="noopener">WhatsApp: +91 63951 13503</a>
   </div>
-  <div class="fine">18th October 2026 · Le Oval Hotel and Resort</div>
+  <div class="fine">18th October 2026 · Le Oval Hotel and Resort, Dehradun</div>
 </footer>
 
 <script>
@@ -769,28 +761,30 @@
   rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('rname').value.trim();
-    const phone = document.getElementById('rphone').value.trim();
-    const guests = document.getElementById('rguests').value;
     const msg = document.getElementById('rmsg').value.trim();
     const events = Array.from(document.querySelectorAll('input[name="event"]:checked')).map(cb => cb.value);
 
     let text = `Hi Kanika & Utkarsh! Here's my RSVP:\n`;
     text += `Name: ${name}\n`;
-    text += `Phone: ${phone}\n`;
-    text += `Guests: ${guests}\n`;
     text += `Attending: ${events.length ? events.join(', ') : 'To be confirmed'}\n`;
     if(msg) text += `Message: ${msg}\n`;
 
     const url = `https://wa.me/916395113503?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   });
 
   // Add to calendar (ICS)
   const icsData = {
-    prewedding: {title:"Pre-wedding function — Kanika & Utkarsh", start:"20261012T150000", end:"20261012T180000", loc:"Vishal Wedding Point"},
-    mehndi: {title:"Mehndi & Nutair — Kanika & Utkarsh", start:"20261017T190000", end:"20261017T230000", loc:"Le Oval Hotel and Resort"},
-    haldi: {title:"Haldi — Kanika & Utkarsh", start:"20261018T100000", end:"20261018T130000", loc:"Le Oval Hotel and Resort"},
-    wedding: {title:"Wedding ceremony — Kanika & Utkarsh", start:"20261018T190000", end:"20261018T230000", loc:"Le Oval Hotel and Resort"},
+    prewedding: {title:"Pre-wedding function — Kanika & Utkarsh", start:"20261012T150000", end:"20261012T180000", loc:"Vishal Wedding Point, Chauras"},
+    mehndi: {title:"Mehndi & Nutair — Kanika & Utkarsh", start:"20261017T190000", end:"20261017T230000", loc:"Le Oval Hotel and Resort, Dehradun"},
+    haldi: {title:"Haldi — Kanika & Utkarsh", start:"20261018T100000", end:"20261018T130000", loc:"Le Oval Hotel and Resort, Dehradun"},
+    wedding: {title:"Wedding ceremony — Kanika & Utkarsh", start:"20261018T190000", end:"20261018T230000", loc:"Le Oval Hotel and Resort, Dehradun"},
   };
   document.querySelectorAll('[data-ics]').forEach(btn => {
     btn.addEventListener('click', () => {
