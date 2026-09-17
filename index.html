@@ -797,19 +797,19 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // Hero — gentle parallax while scrolling
-  const heroBg = document.querySelector('.hero-bg');
-  const heroSection = document.getElementById('top');
-  if(heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    let zoomCleared = false;
-    window.addEventListener('scroll', () => {
-      if(!zoomCleared){ heroBg.style.animation = 'none'; zoomCleared = true; }
-      const y = window.scrollY;
-      if(y < window.innerHeight * 1.2){
-        heroBg.style.transform = `translateY(${y * 0.35}px) scale(1.08)`;
-      }
-    }, {passive:true});
-  }
+  // // Hero — gentle parallax while scrolling
+  // const heroBg = document.querySelector('.hero-bg');
+  // const heroSection = document.getElementById('top');
+  // if(heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  //   let zoomCleared = false;
+  //   window.addEventListener('scroll', () => {
+  //     if(!zoomCleared){ heroBg.style.animation = 'none'; zoomCleared = true; }
+  //     const y = window.scrollY;
+  //     if(y < window.innerHeight * 1.2){
+  //       heroBg.style.transform = `translateY(${y * 0.35}px) scale(1.08)`;
+  //     }
+  //   }, {passive:true});
+  // }
 
   // Timeline — a small gold marker that travels down the line as you scroll through it
   const timelineEl = document.getElementById('timeline');
