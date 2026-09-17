@@ -493,7 +493,7 @@
         <path d="M10 96 V46 C10 20 30 6 60 6 C90 6 110 20 110 46 V96" stroke="currentColor" stroke-width="2"/>
       </svg>
       <div class="eyebrow">18th October 2026</div>
-      <h2>Wedding functions</h2>
+      <h2>Wedding Functions</h2>
       <p>Four days of celebration — here's everywhere we'd love for you to join us.</p>
     </div>
 
@@ -505,7 +505,7 @@
           <div class="tl-top">
             <div>
               <div class="tl-date">Monday, 12th October 2026</div>
-              <div class="tl-name">Pre-wedding function</div>
+              <div class="tl-name">Pre-wedding Function</div>
             </div>
             <div class="tl-time">3:00 PM</div>
           </div>
@@ -568,7 +568,7 @@
           <div class="tl-top">
             <div>
               <div class="tl-date">Sunday, 18th October 2026</div>
-              <div class="tl-name">Wedding ceremony</div>
+              <div class="tl-name">Wedding Ceremony</div>
             </div>
             <div class="tl-time">7:00 PM</div>
           </div>
@@ -622,34 +622,24 @@
         <path d="M10 96 V46 C10 20 30 6 60 6 C90 6 110 20 110 46 V96" stroke="currentColor" stroke-width="2"/>
       </svg>
       <div class="eyebrow">Kindly respond</div>
-      <h2>Will you join us?</h2>
-      <p>Let us know which functions you'll be at — it helps us plan every last detail with you in mind.</p>
+      <h2>Please Join us on this new Phase of our life</h2>
     </div>
 
     <div class="rsvp-box reveal">
-      <form id="rsvpForm">
+      <div id="rsvpForm">
         <div class="field">
           <label for="rname">Your name</label>
-          <input type="text" id="rname" name="rname" placeholder="Full name" required>
+          <input type="text" id="rname" name="rname" placeholder="Full name">
         </div>
         <div class="field">
-          <label>Which functions will you attend?</label>
-          <div class="check-grid">
-            <label class="check-item"><input type="checkbox" name="event" value="Pre-wedding function — 12 Oct"> Pre-wedding · 12 Oct</label>
-            <label class="check-item"><input type="checkbox" name="event" value="Mehndi &amp; Nutair — 17 Oct"> Mehndi &amp; Nutair · 17 Oct</label>
-            <label class="check-item"><input type="checkbox" name="event" value="Haldi — 18 Oct"> Haldi · 18 Oct</label>
-            <label class="check-item"><input type="checkbox" name="event" value="Wedding ceremony — 18 Oct"> Wedding ceremony · 18 Oct</label>
-          </div>
-        </div>
-        <div class="field">
-          <label for="rmsg">A message for the couple (optional)</label>
-          <textarea id="rmsg" name="rmsg" rows="3" placeholder="Wishes, dietary notes, anything at all"></textarea>
+          <label for="rmsg">A Cute Note for the couple</label>
+          <textarea id="rmsg" name="rmsg" rows="3" placeholder="Write us something sweet"></textarea>
         </div>
         <div class="rsvp-submit">
-          <button type="submit" class="btn wa">Send RSVP on WhatsApp</button>
+          <a href="#" id="rsvpWaBtn" class="btn wa" target="_blank" rel="noopener">Message us on WhatsApp</a>
         </div>
         <p class="rsvp-note">This opens WhatsApp with your details filled in, addressed to the couple at +91 63951 13503 — just hit send.</p>
-      </form>
+      </div>
 
       <div class="divider-word">or</div>
 
@@ -757,34 +747,30 @@
   lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('open'); });
 
   // RSVP -> WhatsApp
-  const rsvpForm = document.getElementById('rsvpForm');
-  rsvpForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('rname').value.trim();
-    const msg = document.getElementById('rmsg').value.trim();
-    const events = Array.from(document.querySelectorAll('input[name="event"]:checked')).map(cb => cb.value);
+  // Built as a real, always-current <a href> (rather than a scripted window.open)
+  // so it works reliably everywhere, including inside embedded/iframed views.
+  const rsvpWaBtn = document.getElementById('rsvpWaBtn');
+  const rnameInput = document.getElementById('rname');
+  const rmsgInput = document.getElementById('rmsg');
 
-    let text = `Hi Kanika & Utkarsh! Here's my RSVP:\n`;
-    text += `Name: ${name}\n`;
-    text += `Attending: ${events.length ? events.join(', ') : 'To be confirmed'}\n`;
-    if(msg) text += `Message: ${msg}\n`;
-
-    const url = `https://wa.me/916395113503?text=${encodeURIComponent(text)}`;
-    const link = document.createElement('a');
-    link.href = url;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  });
+  function buildRsvpLink(){
+    const name = rnameInput.value.trim();
+    const msg = rmsgInput.value.trim();
+    let text = "Hi Kanika & Utkarsh! I'd love to confirm my RSVP.\n";
+    text += `Name: ${name || '—'}\n`;
+    if(msg) text += `Note: ${msg}\n`;
+    rsvpWaBtn.href = `https://wa.me/916395113503?text=${encodeURIComponent(text)}`;
+  }
+  buildRsvpLink();
+  rnameInput.addEventListener('input', buildRsvpLink);
+  rmsgInput.addEventListener('input', buildRsvpLink);
 
   // Add to calendar (ICS)
   const icsData = {
-    prewedding: {title:"Pre-wedding function — Kanika & Utkarsh", start:"20261012T150000", end:"20261012T180000", loc:"Vishal Wedding Point, Chauras"},
+    prewedding: {title:"Pre-wedding Function — Kanika & Utkarsh", start:"20261012T150000", end:"20261012T180000", loc:"Vishal Wedding Point, Chauras"},
     mehndi: {title:"Mehndi & Nutair — Kanika & Utkarsh", start:"20261017T190000", end:"20261017T230000", loc:"Le Oval Hotel and Resort, Dehradun"},
     haldi: {title:"Haldi — Kanika & Utkarsh", start:"20261018T100000", end:"20261018T130000", loc:"Le Oval Hotel and Resort, Dehradun"},
-    wedding: {title:"Wedding ceremony — Kanika & Utkarsh", start:"20261018T190000", end:"20261018T230000", loc:"Le Oval Hotel and Resort, Dehradun"},
+    wedding: {title:"Wedding Ceremony — Kanika & Utkarsh", start:"20261018T190000", end:"20261018T230000", loc:"Le Oval Hotel and Resort, Dehradun"},
   };
   document.querySelectorAll('[data-ics]').forEach(btn => {
     btn.addEventListener('click', () => {
